@@ -9,6 +9,10 @@ body{
   align-items: center;
 }
 
+a {
+  text-decoration: none;
+}
+
 nav {
   width: 100vw;
   margin-top: 1em;
@@ -27,7 +31,7 @@ nav ul {
     -o-transition: max-height 0.4s;
     transition: max-height 0.4s;
   }
-  
+
   nav ul li {
     display: inline-block;
     padding: 20px;
@@ -37,7 +41,6 @@ nav ul {
 
   nav ul li a {
   color: black;
-  text-decoration: none;
   font-weight: bold;
   font-size: 1.2em;
   }
@@ -52,9 +55,9 @@ nav ul {
 
   .icon{
     width: 40px;
-    height:40px;    
+    height:40px;
     padding-right: 5px;
-  }  
+  }
   .icons{
   }
 
@@ -77,9 +80,8 @@ nav ul {
   .modal {
     display: none;
   }
-  
+
   .modal.is-open {
     display: block;
   }
 
- 

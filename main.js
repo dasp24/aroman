@@ -1,6 +1,12 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const boxers = require('./static/assets/boxers');
 
-app.use(express.static('static'))
+const app = express();
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.set('view engine', 'ejs');
+
+app.get('/', (req, res) => res.render('home', { boxers }));
+
+app.use(express.static('static'));
+
+app.listen(3000);

@@ -11,6 +11,10 @@
     <link href="./modal.css" type="text/css" rel="stylesheet">
     <title>Document</title>
     <script src="https://unpkg.com/micromodal/dist/micromodal.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+      crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -18,7 +22,7 @@
     <nav>
         <ul>
             <li>
-                <a href="./home.html">Home</a>
+                <a href="/home.html">Home</a>
             </li>
             <li>
                 <a href="./about.html">About</a>
@@ -29,36 +33,23 @@
         </ul>
     </nav>
     <section id="boxers">
-        <div>
-            <img data-modal-open="modal-1" class="boxerImg" src="./assets/Ohara.jpg">
-            <p>Ohara</p>
-            <div class="icons">
-                <a href="https://www.facebook.com">
-                    <img class="icon" src="./assets/fb.ico">
-                </a>
-                <a href="https://www.instagram.com">
-                    <img class="icon" src="./assets/instagram.jpeg">
-                </a>
-                <a href="https://www.twitter.com">
-                    <img class="icon" src="./assets/twitter.png">
-                </a>
-            </div>
-        </div>
-        <div>
-            <img class="boxerImg" src="./assets/max.jpg">
-            <p>Max</p>
-            <div class="icons">
-                <img class="icon" src="./assets/fb.ico" href="www.facebook.com">
-                <img class="icon" src="./assets/instagram.jpeg" href="www.facebook.com">
-                <img class="icon" src="./assets/twitter.png" href="www.facebook.com">
-            </div>
-        </div>
-        <div>
-            <img class="boxerImg" src="./assets/Ohara.jpg">
-        </div>
-        <div>
-            <img class="boxerImg" src="./assets/max.jpg">
-        </div>
+        <% boxers.forEach((boxer, i) => { %>
+           <div>
+               <img data-modal-open="modal-1" onclick="updateModal(<%= i %>)" class="boxerImg" src=<%= boxer.imageSrc %>>
+               <p><%= boxer.name %></p>
+                <div class="icons">
+                    <a href="https://www.facebook.com">
+                        <img class="icon" src="./assets/fb.ico">
+                    </a>
+                    <a href="https://www.instagram.com">
+                        <img class="icon" src="./assets/instagram.jpeg">
+                    </a>
+                    <a href="https://www.twitter.com">
+                        <img class="icon" src="./assets/twitter.png">
+                    </a>
+                </div>
+           </div>
+        <% }) %>
     </section>
 
     <div class="modal modal-slide" id="modal-1" aria-hidden="true">
@@ -71,6 +62,7 @@
                     <button class="modal__close" aria-label="Close modal" data-modal-close></button>
                 </header>
                 <main class="modal__content" id="modal-1-content">
+                    <img></img>
                     <p>
                         Thi boxer is good because of reason.
                         <br> check out online stuff
@@ -93,10 +85,18 @@
         openTrigger: 'data-modal-open',
         closeTrigger: 'data-modal-close',
         disableScroll: true,
-        disableFocus: false,
+        disableFocus: true,
         awaitCloseAnimation: false,
         debugMode: true
     });
+
+    function updateModal(boxerIndex) {
+      const boxers = <%- JSON.stringify(boxers) %>;
+      const boxer = boxers[boxerIndex];
+
+      $('#modal-1-title').text(boxer.name);
+      $('#modal-1-content>img').attr('src', boxer.imageSrc);
+    }
 </script>
 
 </html>
