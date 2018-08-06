@@ -15,4 +15,4 @@ app.use('/static', express.static('static'));
 // 404
 app.use('*', (req, res) => res.render('404', { pageTitle: 'Page doesn\'t exist' }));
 
-app.listen(3000);
+app.listen(process.env.PORT || 3000);
