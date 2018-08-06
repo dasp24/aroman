@@ -1,30 +1,30 @@
 [
   {
     "name": "Ohara",
-    "imageSrc": "/assets/boxerImages/Ohara.jpeg"
+    "imageSrc": "/static/assets/boxerImages/Ohara.jpeg"
   },
   {
     "name": "Max",
-    "imageSrc": "/assets/boxerImages/Max.jpeg"
+    "imageSrc": "/static/assets/boxerImages/Max.jpeg"
   },
   {
     "name": "Floyd Mayweather",
-    "imageSrc": "/assets/boxerImages/FloydMayweather.jpeg"
+    "imageSrc": "/static/assets/boxerImages/FloydMayweather.jpeg"
   },
   {
     "name": "Muhammad Ali",
-    "imageSrc": "/assets/boxerImages/MuhammadAli.jpeg"
+    "imageSrc": "/static/assets/boxerImages/MuhammadAli.jpeg"
   },
   {
     "name": "Manny Pacquiao",
-    "imageSrc": "/assets/boxerImages/MannyPacquiao.jpeg"
+    "imageSrc": "/static/assets/boxerImages/MannyPacquiao.jpeg"
   },
   {
     "name": "Mike Tyson",
-    "imageSrc": "/assets/boxerImages/MikeTyson.jpeg"
+    "imageSrc": "/static/assets/boxerImages/MikeTyson.jpeg"
   },
   {
     "name": "George Foreman",
-    "imageSrc": "/assets/boxerImages/GeorgeForeman.jpeg"
+    "imageSrc": "/static/assets/boxerImages/GeorgeForeman.jpeg"
   }
 ]

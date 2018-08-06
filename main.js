@@ -5,8 +5,14 @@ const app = express();
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => res.render('home', { boxers }));
+// Specified Routes
+app.get('/', (req, res) => res.render('home', { boxers, pageTitle: 'Aroman' }));
+app.get('/contactUs', (req, res) => res.render('contactUs', { pageTitle: 'Contact Us' }));
 
-app.use(express.static('static'));
+// Static bucket
+app.use('/static', express.static('static'));
+
+// 404
+app.use('*', (req, res) => res.render('404', { pageTitle: 'Page doesn\'t exist' }));
 
 app.listen(3000);
