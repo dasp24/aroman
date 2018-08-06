@@ -8,7 +8,7 @@
     <section id="boxers">
         <% boxers.forEach((boxer, i) => { %>
            <div>
-               <img data-modal-open="modal-1" onclick="updateModal(<%= i %>)" class="boxerImg" src=<%= boxer.imageSrc %>>
+               <img data-modal-open="modal" onclick="updateModal(<%= i %>)" class="boxerImg" src=<%= boxer.imageSrc %>>
                <p><%= boxer.name %></p>
                 <div class="icons">
                     <a href="https://www.facebook.com">
@@ -25,28 +25,19 @@
         <% }) %>
     </section>
 
-    <div class="modal modal-slide" id="modal-1" aria-hidden="true">
-        <div class="modal__overlay" tabindex="-1" data-modal-close>
-            <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
-                <header class="modal__header">
-                    <h2 class="modal__title" id="modal-1-title">
+    <div class="modal-slide" id="modal" aria-hidden="true">
+        <div id="modal-overlay" tabindex="-1" data-modal-close>
+            <div id="modal-container" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+                <img id="modal-image"></img>
+                <section id="modal-content">
+                    <h2 id="modal-title">
                         Boxer name here, ey?
                     </h2>
-                    <button class="modal__close" aria-label="Close modal" data-modal-close></button>
-                </header>
-                <main class="modal__content" id="modal-1-content">
-                    <img></img>
-                    <p>
-                        Thi boxer is good because of reason.
-                        <br> check out online stuff
-                        <br> facebook
-                        <br> instan
-                    </p>
-                </main>
-                <footer class="modal__footer">
-                    <button class="modal__btn modal__btn-primary">Continue</button>
-                    <button class="modal__btn" data-modal-close aria-label="Close this dialog window">Close</button>
-                </footer>
+                    Thi boxer is good because of reason.
+                    <br> check out online stuff
+                    <br> facebook
+                    <br> instan
+                </section>
             </div>
         </div>
     </div>
@@ -59,7 +50,7 @@
         closeTrigger: 'data-modal-close',
         disableScroll: true,
         disableFocus: true,
-        awaitCloseAnimation: false,
+        awaitCloseAnimation: true,
         debugMode: true
     });
 
@@ -67,8 +58,8 @@
       const boxers = <%- JSON.stringify(boxers) %>;
       const boxer = boxers[boxerIndex];
 
-      $('#modal-1-title').text(boxer.name);
-      $('#modal-1-content>img').attr('src', boxer.imageSrc);
+      $('#modal-title').text(boxer.name);
+      $('#modal-image').attr('src', boxer.imageSrc);
     }
 </script>
 
